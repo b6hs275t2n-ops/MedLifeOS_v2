@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goals | MedLife OS</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">🩺 MedLife OS</div>
+
+<ul class="nav">
+<li><a href="index.html">🏠 Dashboard</a></li>
+<li><a href="study.html">📚 Study Planner</a></li>
+<li><a href="goals.html" class="active">🎯 Goals</a></li>
+<li><a href="notes.html">📝 Notes</a></li>
+<li><a href="analytics.html">📊 Analytics</a></li>
+<li><a href="settings.html">⚙️ Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<h1>🎯 Goals Tracker</h1>
+
+<br>
+
+<div class="card">
+
+<h2>Add New Goal</h2>
+
+<br>
+
+<div class="goal-input">
+
+<input
+type="text"
+id="goalInput"
+placeholder="Enter your goal"
+>
+
+<button onclick="addGoal()">
+Add Goal
+</button>
+
+</div>
+
+<div id="goalList"></div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Suggested Daily Goals</h2>
+
+<br>
+
+<div class="goal-item">📚 Complete 50 MCQs</div>
+<div class="goal-item">🧫 Revise Microbiology</div>
+<div class="goal-item">💊 Revise Pharmacology</div>
+<div class="goal-item">📝 Update Notes</div>
+<div class="goal-item">😴 Sleep 7+ Hours</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
