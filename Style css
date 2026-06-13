@@ -290,3 +290,27 @@ align-items:flex-start;
 font-size:32px;
 }
 }
+/* LIGHT MODE */
+
+body.light-mode{
+background:#f3f4f6;
+color:#111827;
+}
+
+body.light-mode .sidebar{
+background:#ffffff;
+}
+
+body.light-mode .card{
+background:white;
+color:#111827;
+}
+
+body.light-mode .nav a{
+color:#111827;
+}
+
+body.light-mode .goal-input input{
+background:#e5e7eb;
+color:#111827;
+}
