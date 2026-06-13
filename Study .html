@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Planner | MedLife OS</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🩺 MedLife OS
+</div>
+
+<ul class="nav">
+<li><a href="index.html">🏠 Dashboard</a></li>
+<li><a href="study.html" class="active">📚 Study Planner</a></li>
+<li><a href="goals.html">🎯 Goals</a></li>
+<li><a href="notes.html">📝 Notes</a></li>
+<li><a href="analytics.html">📊 Analytics</a></li>
+<li><a href="settings.html">⚙️ Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<h1>📚 Study Planner</h1>
+
+<br>
+
+<div class="card">
+
+<h2>Today's Subjects</h2>
+
+<br>
+
+<div class="subject">
+Microbiology
+<div class="progress">
+<div style="width:80%"></div>
+</div>
+</div>
+
+<div class="subject">
+Pharmacology
+<div class="progress">
+<div style="width:60%"></div>
+</div>
+</div>
+
+<div class="subject">
+Pathology
+<div class="progress">
+<div style="width:45%"></div>
+</div>
+</div>
+
+<div class="subject">
+Community Medicine
+<div class="progress">
+<div style="width:40%"></div>
+</div>
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Pomodoro Timer</h2>
+
+<br>
+
+<h1 id="timer">25:00</h1>
+
+<br>
+
+<button onclick="startTimer()" id="themeBtn">
+▶ Start
+</button>
+
+<button onclick="resetTimer()" id="themeBtn">
+⟳ Reset
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let time = 1500;
+let interval;
+
+function updateTimer(){
+
+const minutes =
+Math.floor(time/60);
+
+const seconds =
+time%60;
+
+document.getElementById("timer")
+.innerText =
+String(minutes).padStart(2,"0")
++ ":"
++
+String(seconds).padStart(2,"0");
+
+}
+
+function startTimer(){
+
+clearInterval(interval);
+
+interval = setInterval(()=>{
+
+if(time>0){
+
+time--;
+
+updateTimer();
+
+}
+
+},1000);
+
+}
+
+function resetTimer(){
+
+clearInterval(interval);
+
+time = 1500;
+
+updateTimer();
+
+}
+
+updateTimer();
+
+</script>
+
+</body>
+</html>
