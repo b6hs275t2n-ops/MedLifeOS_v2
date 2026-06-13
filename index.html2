@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedLife OS v2</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🩺 MedLife OS
+</div>
+
+<ul class="nav">
+<li><a href="index.html" class="active">🏠 Dashboard</a></li>
+<li><a href="study.html">📚 Study Planner</a></li>
+<li><a href="goals.html">🎯 Goals</a></li>
+<li><a href="notes.html">📝 Notes</a></li>
+<li><a href="analytics.html">📊 Analytics</a></li>
+<li><a href="settings.html">⚙️ Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<header class="topbar">
+<h1>Dashboard</h1>
+<button id="themeBtn">🌙 Dark Mode</button>
+</header>
+
+<div class="cards">
+
+<div class="card">
+<h3>NEET PG Countdown</h3>
+<div class="big-number" id="countdown">
+Loading...
+</div>
+</div>
+
+<div class="card">
+<h3>Today's Study Hours</h3>
+<div class="big-number" id="hours">
+0h
+</div>
+</div>
+
+<div class="card">
+<h3>Current Streak</h3>
+<div class="big-number">
+🔥 14
+</div>
+</div>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="card">
+
+<h2>Today's Goals</h2>
+
+<div class="goal-input">
+
+<input
+type="text"
+id="goalInput"
+placeholder="Add a new goal"
+>
+
+<button onclick="addGoal()">
+Add
+</button>
+
+</div>
+
+<div id="goalList"></div>
+
+</div>
+
+<div class="card">
+
+<h2>Subject Progress</h2>
+
+<div class="subject">
+Microbiology
+<div class="progress">
+<div style="width:80%"></div>
+</div>
+</div>
+
+<div class="subject">
+Pharmacology
+<div class="progress">
+<div style="width:65%"></div>
+</div>
+</div>
+
+<div class="subject">
+Pathology
+<div class="progress">
+<div style="width:50%"></div>
+</div>
+</div>
+
+<div class="subject">
+Community Medicine
+<div class="progress">
+<div style="width:40%"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="card chart-card">
+
+<h2>Weekly Study Progress</h2>
+
+<canvas id="studyChart"></canvas>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+<script>
+
+const ctx=document.getElementById('studyChart');
+
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:[
+'Mon',
+'Tue',
+'Wed',
+'Thu',
+'Fri',
+'Sat',
+'Sun'
+],
+datasets:[{
+label:'Hours Studied',
+data:[4,6,5,8,7,3,6]
+}]
+},
+options:{
+responsive:true
+}
+});
+
+</script>
+
+</body>
+</html>
