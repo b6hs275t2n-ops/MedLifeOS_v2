@@ -1,0 +1,292 @@
+/* =========================
+   MEDLIFE OS V2
+   PROFESSIONAL DARK THEME
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+:root{
+--bg:#0b1220;
+--sidebar:#111827;
+--card:#182235;
+--card-hover:#1f2b42;
+--accent:#3b82f6;
+--text:#ffffff;
+--muted:#9ca3af;
+--border:rgba(255,255,255,0.08);
+}
+
+body{
+background:linear-gradient(
+135deg,
+#0b1220,
+#111827,
+#0f172a
+);
+color:var(--text);
+min-height:100vh;
+display:flex;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+width:260px;
+background:rgba(17,24,39,0.95);
+backdrop-filter:blur(20px);
+padding:25px;
+border-right:1px solid var(--border);
+position:fixed;
+top:0;
+left:0;
+height:100vh;
+overflow-y:auto;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+margin-bottom:40px;
+}
+
+.nav{
+list-style:none;
+}
+
+.nav li{
+margin-bottom:12px;
+}
+
+.nav a{
+display:block;
+text-decoration:none;
+color:white;
+padding:14px 16px;
+border-radius:14px;
+transition:0.3s;
+background:rgba(255,255,255,0.03);
+}
+
+.nav a:hover{
+background:var(--accent);
+transform:translateX(4px);
+}
+
+.nav .active{
+background:var(--accent);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main{
+margin-left:260px;
+padding:30px;
+width:100%;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.topbar h1{
+font-size:34px;
+font-weight:800;
+}
+
+#themeBtn{
+background:var(--accent);
+border:none;
+padding:12px 18px;
+border-radius:12px;
+color:white;
+cursor:pointer;
+font-weight:600;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.cards{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(15px);
+border:1px solid var(--border);
+border-radius:24px;
+padding:22px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+background:var(--card-hover);
+}
+
+.card h3{
+color:var(--muted);
+font-size:14px;
+margin-bottom:10px;
+}
+
+.big-number{
+font-size:42px;
+font-weight:800;
+}
+
+/* =========================
+   DASHBOARD GRID
+========================= */
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-bottom:25px;
+}
+
+/* =========================
+   GOALS
+========================= */
+
+.goal-input{
+display:flex;
+gap:10px;
+margin:15px 0;
+}
+
+.goal-input input{
+flex:1;
+padding:14px;
+border:none;
+outline:none;
+border-radius:12px;
+background:#0f172a;
+color:white;
+}
+
+.goal-input button{
+padding:14px 18px;
+border:none;
+background:var(--accent);
+color:white;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+}
+
+.goal-item{
+padding:12px;
+margin-top:10px;
+border-radius:12px;
+background:#0f172a;
+}
+
+/* =========================
+   PROGRESS BARS
+========================= */
+
+.subject{
+margin:18px 0;
+font-size:15px;
+}
+
+.progress{
+height:12px;
+background:#0f172a;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.progress div{
+height:100%;
+background:linear-gradient(
+90deg,
+#2563eb,
+#60a5fa
+);
+border-radius:20px;
+}
+
+/* =========================
+   CHART CARD
+========================= */
+
+.chart-card{
+padding:25px;
+}
+
+.chart-card canvas{
+margin-top:20px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-track{
+background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+background:#3b82f6;
+border-radius:20px;
+}
+
+/* =========================
+   MOBILE + IPAD
+========================= */
+
+@media(max-width:900px){
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+}
+
+.main{
+margin-left:0;
+}
+
+.dashboard-grid{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.topbar{
+flex-direction:column;
+gap:15px;
+align-items:flex-start;
+}
+
+.big-number{
+font-size:32px;
+}
+}
