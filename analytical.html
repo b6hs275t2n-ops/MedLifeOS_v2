@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics | MedLife OS</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">🩺 MedLife OS</div>
+
+<ul class="nav">
+<li><a href="index.html">🏠 Dashboard</a></li>
+<li><a href="study.html">📚 Study Planner</a></li>
+<li><a href="goals.html">🎯 Goals</a></li>
+<li><a href="notes.html">📝 Notes</a></li>
+<li><a href="analytics.html" class="active">📊 Analytics</a></li>
+<li><a href="settings.html">⚙️ Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<h1>📊 Study Analytics</h1>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Study Hours</h3>
+<div class="big-number">152h</div>
+</div>
+
+<div class="card">
+<h3>MCQs Solved</h3>
+<div class="big-number">2,450</div>
+</div>
+
+<div class="card">
+<h3>Current Streak</h3>
+<div class="big-number">🔥 14</div>
+</div>
+
+</div>
+
+<div class="card chart-card">
+
+<h2>Weekly Study Hours</h2>
+
+<canvas id="studyChart"></canvas>
+
+</div>
+
+<br>
+
+<div class="card chart-card">
+
+<h2>Subject Progress</h2>
+
+<canvas id="subjectChart"></canvas>
+
+</div>
+
+</div>
+
+<script>
+
+const studyCtx =
+document.getElementById(
+"studyChart"
+);
+
+new Chart(studyCtx,{
+
+type:"bar",
+
+data:{
+labels:[
+"Mon",
+"Tue",
+"Wed",
+"Thu",
+"Fri",
+"Sat",
+"Sun"
+],
+
+datasets:[{
+label:"Study Hours",
+
+data:[
+4,
+6,
+5,
+8,
+7,
+3,
+6
+]
+
+}]
+},
+
+options:{
+responsive:true
+}
+
+});
+
+const subjectCtx =
+document.getElementById(
+"subjectChart"
+);
+
+new Chart(subjectCtx,{
+
+type:"doughnut",
+
+data:{
+
+labels:[
+"Microbiology",
+"Pharmacology",
+"Pathology",
+"Community Medicine"
+],
+
+datasets:[{
+
+data:[
+80,
+65,
+50,
+40
+]
+
+}]
+
+},
+
+options:{
+responsive:true
+}
+
+});
+
+</script>
+
+</body>
+</html>
