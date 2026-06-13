@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes | MedLife OS</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">🩺 MedLife OS</div>
+
+<ul class="nav">
+<li><a href="index.html">🏠 Dashboard</a></li>
+<li><a href="study.html">📚 Study Planner</a></li>
+<li><a href="goals.html">🎯 Goals</a></li>
+<li><a href="notes.html" class="active">📝 Notes</a></li>
+<li><a href="analytics.html">📊 Analytics</a></li>
+<li><a href="settings.html">⚙️ Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<h1>📝 Smart Notes</h1>
+
+<br>
+
+<div class="card">
+
+<h2>My Notes</h2>
+
+<br>
+
+<textarea
+id="notesArea"
+placeholder="Write your study notes here..."
+style="
+width:100%;
+height:400px;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#0f172a;
+color:white;
+font-size:16px;
+resize:vertical;
+"></textarea>
+
+<br><br>
+
+<button id="themeBtn" onclick="saveNotes()">
+💾 Save Notes
+</button>
+
+<button id="themeBtn" onclick="clearNotes()">
+🗑 Clear Notes
+</button>
+
+<p id="saveStatus" style="margin-top:15px;"></p>
+
+</div>
+
+</div>
+
+<script>
+
+function saveNotes(){
+
+const notes =
+document.getElementById("notesArea").value;
+
+localStorage.setItem(
+"medlife_notes",
+notes
+);
+
+document.getElementById("saveStatus")
+.innerText =
+"✅ Notes Saved Successfully";
+
+}
+
+function loadNotes(){
+
+const saved =
+localStorage.getItem(
+"medlife_notes"
+);
+
+if(saved){
+
+document.getElementById(
+"notesArea"
+).value = saved;
+
+}
+
+}
+
+function clearNotes(){
+
+localStorage.removeItem(
+"medlife_notes"
+);
+
+document.getElementById(
+"notesArea"
+).value = "";
+
+document.getElementById(
+"saveStatus"
+).innerText =
+"🗑 Notes Cleared";
+
+}
+
+window.onload = loadNotes;
+
+</script>
+
+</body>
+</html>
