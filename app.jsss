@@ -1,0 +1,221 @@
+// ============================
+// MEDLIFE OS V2 APP.JS
+// ============================
+
+// -------- Countdown --------
+
+function updateCountdown() {
+
+const examDate = new Date("2027-03-01");
+
+const today = new Date();
+
+const diff = Math.ceil(
+(examDate - today) /
+(1000 * 60 * 60 * 24)
+);
+
+const countdown =
+document.getElementById("countdown");
+
+if(countdown){
+
+countdown.innerText =
+diff > 0 ? diff + " Days" : "Exam Day";
+
+}
+
+}
+
+// -------- Goals --------
+
+function saveGoals(){
+
+localStorage.setItem(
+"medlife_goals",
+document.getElementById("goalList").innerHTML
+);
+
+}
+
+function addGoal(){
+
+const input =
+document.getElementById("goalInput");
+
+if(!input) return;
+
+const text = input.value.trim();
+
+if(text === "") return;
+
+const goal =
+document.createElement("div");
+
+goal.className = "goal-item";
+
+goal.innerHTML = `
+<span>✅ ${text}</span>
+<button onclick="deleteGoal(this)">
+❌
+</button>
+`;
+
+document
+.getElementById("goalList")
+.appendChild(goal);
+
+saveGoals();
+
+input.value = "";
+
+}
+
+function deleteGoal(btn){
+
+btn.parentElement.remove();
+
+saveGoals();
+
+}
+
+// -------- Load Goals --------
+
+function loadGoals(){
+
+const goalList =
+document.getElementById("goalList");
+
+if(!goalList) return;
+
+goalList.innerHTML =
+localStorage.getItem(
+"medlife_goals"
+) || "";
+
+}
+
+// -------- Theme Toggle --------
+
+function loadTheme(){
+
+const savedTheme =
+localStorage.getItem(
+"medlife_theme"
+);
+
+if(savedTheme === "light"){
+
+document.body.classList.add(
+"light-mode"
+);
+
+}
+
+}
+
+function toggleTheme(){
+
+document.body.classList.toggle(
+"light-mode"
+);
+
+const isLight =
+document.body.classList.contains(
+"light-mode"
+);
+
+localStorage.setItem(
+"medlife_theme",
+isLight ? "light" : "dark"
+);
+
+const btn =
+document.getElementById("themeBtn");
+
+if(btn){
+
+btn.innerText =
+isLight
+? "☀️ Light Mode"
+: "🌙 Dark Mode";
+
+}
+
+}
+
+// -------- Study Hours --------
+
+function loadStudyHours(){
+
+const hours =
+localStorage.getItem(
+"medlife_hours"
+) || "0";
+
+const box =
+document.getElementById("hours");
+
+if(box){
+
+box.innerText =
+hours + "h";
+
+}
+
+}
+
+// Add hours manually from browser console:
+// localStorage.setItem("medlife_hours","6")
+
+// -------- Keyboard Enter --------
+
+function setupGoalInput(){
+
+const input =
+document.getElementById("goalInput");
+
+if(!input) return;
+
+input.addEventListener(
+"keypress",
+function(e){
+
+if(e.key === "Enter"){
+
+addGoal();
+
+}
+
+}
+);
+
+}
+
+// -------- App Init --------
+
+window.onload = function(){
+
+updateCountdown();
+
+loadGoals();
+
+loadTheme();
+
+loadStudyHours();
+
+setupGoalInput();
+
+const btn =
+document.getElementById("themeBtn");
+
+if(btn){
+
+btn.addEventListener(
+"click",
+toggleTheme
+);
+
+}
+
+};
